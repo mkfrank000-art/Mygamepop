@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Live Stream Player</h1>
+            <p class="subtitle">Watch your favorite streams in real-time</p>
+        </header>
+
+        <main>
+            <div class="player-section">
+                <div class="video-container">
+                    <video id="videoPlayer" class="video-player" controls playsinline></video>
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <div class="input-group">
+                    <label for="streamUrl">HLS Stream URL:</label>
+                    <input 
+                        type="text" 
+                        id="streamUrl" 
+                        placeholder="https://example.com/stream.m3u8"
+                        class="stream-input"
+                    >
+                    <button id="playBtn" class="btn btn-primary">Play Stream</button>
+                    <button id="stopBtn" class="btn btn-secondary">Stop</button>
+                </div>
+
+                <div class="presets">
+                    <h3>Quick Presets:</h3>
+                    <div class="preset-buttons">
+                        <button class="btn btn-preset" data-url="https://test-streams.mux.dev/x36xhzz/x3eoqm.m3u8">
+                            Test Stream
+                        </button>
+                        <button class="btn btn-preset" data-url="">
+                            Custom URL
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>Stream Stats:</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Status:</span>
+                        <span id="statusText" class="stat-value">Ready</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Current URL:</span>
+                        <span id="urlText" class="stat-value">None</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Bitrate:</span>
+                        <span id="bitrateText" class="stat-value">--</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>💡 Tip: Enter an HLS stream URL (.m3u8) to start watching</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="player.js"></script>
+</body>
+</html>
